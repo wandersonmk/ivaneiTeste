@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio de Números</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="nav-buttons">
+            <a href="calculadora.html" class="btn-nav">🍹 Calculadora de Drinks</a>
+        </div>
+        
+        <h1>🎲 Sorteio de Números</h1>
+        
+        <div class="config-section">
+            <div class="input-group">
+                <label for="minNumber">Número Mínimo:</label>
+                <input type="number" id="minNumber" value="1" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="maxNumber">Número Máximo:</label>
+                <input type="number" id="maxNumber" value="100" min="1">
+            </div>
+            
+            <div class="input-group">
+                <label for="quantity">Quantidade de Números:</label>
+                <input type="number" id="quantity" value="1" min="1" max="100">
+            </div>
+            
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="uniqueNumbers" checked>
+                    Números únicos (sem repetição)
+                </label>
+            </div>
+        </div>
+        
+        <button class="btn-sortear" onclick="sortear()">
+            🎯 SORTEAR
+        </button>
+        
+        <button class="btn-ganhador" onclick="mostrarGanhador()">
+            🏆 IVANEI É O GANHADOR!
+        </button>
+        
+        <div class="cartela-container">
+            <h2>🎯 Cartela de Bingo</h2>
+            <div id="cartela" class="cartela"></div>
+            <div class="btn-group">
+                <button class="btn-compartilhar" onclick="compartilharCartela()">📤 Compartilhar Cartela</button>
+                <button class="btn-resetar" onclick="resetarCartela()">🔄 Nova Cartela</button>
+            </div>
+        </div>
+        
+        <div id="resultado" class="resultado"></div>
+        
+        <div id="historico-container" class="historico-container" style="display: none;">
+            <h3>Histórico de Sorteios</h3>
+            <div id="historico" class="historico"></div>
+            <button class="btn-limpar" onclick="limparHistorico()">Limpar Histórico</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

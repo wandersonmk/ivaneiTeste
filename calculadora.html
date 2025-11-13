@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Drinks para Festa</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="btn-voltar">← Voltar ao Bingo</a>
+            <h1>🍹 Calculadora de Drinks</h1>
+            <p class="subtitle">Calcule quantos drinks você precisa para sua festa!</p>
+        </div>
+        
+        <div class="calculator-section">
+            <div class="input-group">
+                <label for="numPessoas">👥 Número de Pessoas:</label>
+                <input type="number" id="numPessoas" value="10" min="1" placeholder="Ex: 50">
+            </div>
+            
+            <div class="input-group">
+                <label for="duracaoFesta">⏰ Duração da Festa (horas):</label>
+                <input type="number" id="duracaoFesta" value="4" min="1" max="12" placeholder="Ex: 4">
+            </div>
+            
+            <div class="input-group">
+                <label for="tipoFesta">🎉 Tipo de Festa:</label>
+                <select id="tipoFesta">
+                    <option value="leve">Festa Leve (Brunch, Chá)</option>
+                    <option value="moderada" selected>Festa Moderada (Aniversário, Confraternização)</option>
+                    <option value="intensa">Festa Intensa (Balada, Casamento)</option>
+                </select>
+            </div>
+            
+            <div class="checkbox-section">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="incluirAlcoolicos" checked>
+                    Incluir bebidas alcoólicas
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="incluirNaoAlcoolicos" checked>
+                    Incluir bebidas não alcoólicas
+                </label>
+            </div>
+            
+            <button class="btn-calcular" onclick="calcularDrinks()">
+                🧮 CALCULAR DRINKS
+            </button>
+        </div>
+        
+        <div id="resultado" class="resultado-section" style="display: none;">
+            <h2>📊 Resultado do Cálculo</h2>
+            
+            <div class="resumo">
+                <div class="resumo-item">
+                    <span class="label">Total de Pessoas:</span>
+                    <span class="value" id="totalPessoas">-</span>
+                </div>
+                <div class="resumo-item">
+                    <span class="label">Duração:</span>
+                    <span class="value" id="totalHoras">-</span>
+                </div>
+                <div class="resumo-item highlight">
+                    <span class="label">Total de Drinks:</span>
+                    <span class="value" id="totalDrinks">-</span>
+                </div>
+            </div>
+            
+            <div id="bebidasAlcoolicas" class="categoria-bebidas">
+                <h3>🍺 Bebidas Alcoólicas</h3>
+                <div class="bebidas-grid" id="alcoolicasGrid"></div>
+            </div>
+            
+            <div id="bebidasNaoAlcoolicas" class="categoria-bebidas">
+                <h3>🥤 Bebidas Não Alcoólicas</h3>
+                <div class="bebidas-grid" id="naoAlcoolicasGrid"></div>
+            </div>
+            
+            <div class="extras-section">
+                <h3>🧊 Itens Extras</h3>
+                <div class="extras-grid" id="extrasGrid"></div>
+            </div>
+            
+            <div class="btn-actions">
+                <button class="btn-compartilhar-calc" onclick="compartilharCalculo()">
+                    📤 Compartilhar Lista
+                </button>
+                <button class="btn-exportar-pdf" onclick="exportarPDF()">
+                    📄 Exportar PDF
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="calculadora.js"></script>
+</body>
+</html>
