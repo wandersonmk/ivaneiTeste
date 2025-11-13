@@ -274,11 +274,6 @@ function limparHistorico() {
     }
 }
 
-function mostrarGanhador() {
-    const resultado = document.getElementById('resultado');
-    resultado.innerHTML = '<div class="ganhador-display">🏆 IVANEI É O GANHADOR! 🏆</div>';
-}
-
 // Permitir sortear com Enter
 document.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {

@@ -151,50 +151,6 @@ h1 {
     transform: translateY(0);
 }
 
-.btn-ganhador {
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.3em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-bottom: 20px;
-}
-
-.btn-ganhador:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
-}
-
-.btn-ganhador:active {
-    transform: translateY(0);
-}
-
-.ganhador-display {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: bold;
-    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
-    animation: pulseWinner 1.5s infinite;
-}
-
-@keyframes pulseWinner {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
 .cartela-container {
     background: #f8f9fa;
     padding: 25px;
