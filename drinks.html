@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Drinks - Menu Premium</title>
+    <link rel="stylesheet" href="drinks.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">🍸 DrinkHub</div>
+            <div class="nav-links">
+                <a href="index.html">Bingo</a>
+                <a href="calculadora.html">Calculadora</a>
+                <a href="drinks.html" class="active">Galeria</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Drinks Premium</h1>
+            <p class="hero-subtitle">Descubra os melhores coquetéis e bebidas para sua festa</p>
+            <button class="btn-cta" onclick="scrollToGallery()">Explorar Drinks</button>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Categorias</h2>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="classicos">Clássicos</button>
+                <button class="filter-btn" data-category="tropicais">Tropicais</button>
+                <button class="filter-btn" data-category="sofisticados">Sofisticados</button>
+                <button class="filter-btn" data-category="refrescantes">Refrescantes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Drinks -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="drinks-grid">
+                <!-- Drink 1 -->
+                <div class="drink-card" data-category="classicos">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Martini</h3>
+                        <p class="drink-description">Clássico elegante com gin e vermute seco</p>
+                        <div class="drink-tags">
+                            <span class="tag">Clássico</span>
+                            <span class="tag">Forte</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 2 -->
+                <div class="drink-card" data-category="tropicais">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1546171753-97d7676e4602?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Piña Colada</h3>
+                        <p class="drink-description">Cremoso tropical com coco e abacaxi</p>
+                        <div class="drink-tags">
+                            <span class="tag">Tropical</span>
+                            <span class="tag">Doce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 3 -->
+                <div class="drink-card" data-category="refrescantes">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1551538827-9c037cb4f32a?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Mojito</h3>
+                        <p class="drink-description">Refrescante com hortelã e limão</p>
+                        <div class="drink-tags">
+                            <span class="tag">Refrescante</span>
+                            <span class="tag">Leve</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 4 -->
+                <div class="drink-card" data-category="classicos">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Old Fashioned</h3>
+                        <p class="drink-description">Whisky premium com açúcar e bitter</p>
+                        <div class="drink-tags">
+                            <span class="tag">Clássico</span>
+                            <span class="tag">Amadeirado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 5 -->
+                <div class="drink-card" data-category="tropicais">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1603569283847-aa295f0d016a?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Mai Tai</h3>
+                        <p class="drink-description">Exótico com rum e licor de amêndoa</p>
+                        <div class="drink-tags">
+                            <span class="tag">Tropical</span>
+                            <span class="tag">Exótico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 6 -->
+                <div class="drink-card" data-category="sofisticados">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1560508139-0a2e4d2f6ac5?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">French 75</h3>
+                        <p class="drink-description">Elegante com champagne e gin</p>
+                        <div class="drink-tags">
+                            <span class="tag">Sofisticado</span>
+                            <span class="tag">Espumante</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 7 -->
+                <div class="drink-card" data-category="refrescantes">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1527281400988-b27969eb7d27?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Gin Tônica</h3>
+                        <p class="drink-description">Refrescante com botânicos e tônica</p>
+                        <div class="drink-tags">
+                            <span class="tag">Refrescante</span>
+                            <span class="tag">Herbáceo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 8 -->
+                <div class="drink-card" data-category="classicos">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Daiquiri</h3>
+                        <p class="drink-description">Clássico cubano com rum e limão</p>
+                        <div class="drink-tags">
+                            <span class="tag">Clássico</span>
+                            <span class="tag">Cítrico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 9 -->
+                <div class="drink-card" data-category="sofisticados">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1609951651556-5334e2706168?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Negroni</h3>
+                        <p class="drink-description">Amargo italiano com Campari</p>
+                        <div class="drink-tags">
+                            <span class="tag">Sofisticado</span>
+                            <span class="tag">Amargo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 10 -->
+                <div class="drink-card" data-category="tropicais">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1587223075055-82e9a937ddff?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Caipirinha</h3>
+                        <p class="drink-description">Brasileira com cachaça e limão</p>
+                        <div class="drink-tags">
+                            <span class="tag">Tropical</span>
+                            <span class="tag">Nacional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 11 -->
+                <div class="drink-card" data-category="refrescantes">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1575467678930-c7acd65d6470?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Blue Lagoon</h3>
+                        <p class="drink-description">Visual incrível com curaçau azul</p>
+                        <div class="drink-tags">
+                            <span class="tag">Refrescante</span>
+                            <span class="tag">Visual</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 12 -->
+                <div class="drink-card" data-category="sofisticados">
+                    <div class="drink-image" style="background-image: url('https://images.unsplash.com/photo-1481671703460-040cb8a2d909?q=80&w=800');">
+                    </div>
+                    <div class="drink-info">
+                        <h3 class="drink-name">Manhattan</h3>
+                        <p class="drink-description">Sofisticado com whisky e vermute</p>
+                        <div class="drink-tags">
+                            <span class="tag">Sofisticado</span>
+                            <span class="tag">Encorpado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 DrinkHub - Todos os direitos reservados</p>
+            <div class="footer-links">
+                <a href="index.html">Bingo</a>
+                <a href="calculadora.html">Calculadora</a>
+                <a href="drinks.html">Galeria</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante Instagram -->
+    <a href="https://www.instagram.com/agzap.br/" target="_blank" class="floating-instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+    </a>
+
+    <script src="drinks.js"></script>
+</body>
+</html>

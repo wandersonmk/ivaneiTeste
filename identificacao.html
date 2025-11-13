@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificação do Cliente</title>
+    <link rel="stylesheet" href="identificacao.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1>DrinkHub</h1>
+            <span>SISTEMA DE GESTÃO</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-box">
+            <h2 class="page-title">Identificação do cliente</h2>
+
+            <form id="formIdentificacao" onsubmit="return validarFormulario(event)">
+                <div class="form-group">
+                    <label for="cpfCnpj">
+                        <span class="required">*</span> CPF / CNPJ
+                    </label>
+                    <input 
+                        type="text" 
+                        id="cpfCnpj" 
+                        name="cpfCnpj" 
+                        placeholder="Digite seu CPF ou CNPJ"
+                        maxlength="18"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn-proximo">
+                    PRÓXIMO
+                </button>
+
+                <div class="info-message">
+                    <strong>Importante!</strong> Você precisa de um contrato para acesso ao Portal. 
+                    Caso não tenha, procure uma de nossas lojas e faça um cadastro.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 DrinkHub - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="identificacao.js"></script>
+</body>
+</html>

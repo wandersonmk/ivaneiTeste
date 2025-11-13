@@ -46,6 +46,13 @@ body {
     box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
 }
 
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
