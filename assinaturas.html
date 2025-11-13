@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Assinaturas</title>
+    <link rel="stylesheet" href="assinaturas.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h2>📊 GestãoPro</h2>
+        </div>
+        <nav class="menu">
+            <a href="#" class="menu-item active" onclick="mostrarSecao('dashboard')">
+                <span>📈</span> Dashboard
+            </a>
+            <a href="#" class="menu-item" onclick="mostrarSecao('assinantes')">
+                <span>👥</span> Assinantes
+            </a>
+            <a href="#" class="menu-item" onclick="mostrarSecao('relatorios')">
+                <span>📄</span> Relatórios
+            </a>
+            <a href="#" class="menu-item" onclick="mostrarSecao('configuracoes')">
+                <span>⚙️</span> Configurações
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="search-box">
+                <input type="text" id="buscarAssinante" placeholder="Buscar assinante..." onkeyup="buscarAssinante()">
+            </div>
+            <button class="btn-primary" onclick="abrirModalCadastro()">
+                ➕ Novo Assinante
+            </button>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="secao-dashboard" class="secao active">
+            <h1 class="page-title">Dashboard</h1>
+
+            <div class="cards-grid">
+                <div class="card card-verde">
+                    <div class="card-icon">💰</div>
+                    <div class="card-content">
+                        <h3>Entrada Total</h3>
+                        <p class="valor" id="entradaTotal">R$ 0,00</p>
+                        <small>Total a receber</small>
+                    </div>
+                </div>
+
+                <div class="card card-vermelho">
+                    <div class="card-icon">📉</div>
+                    <div class="card-content">
+                        <h3>Saída Total</h3>
+                        <p class="valor" id="saidaTotal">R$ 0,00</p>
+                        <small>Custos operacionais</small>
+                    </div>
+                </div>
+
+                <div class="card card-azul">
+                    <div class="card-icon">💵</div>
+                    <div class="card-content">
+                        <h3>Lucro Total</h3>
+                        <p class="valor" id="lucroTotal">R$ 0,00</p>
+                        <small>Lucro líquido</small>
+                    </div>
+                </div>
+
+                <div class="card card-roxo">
+                    <div class="card-icon">👤</div>
+                    <div class="card-content">
+                        <h3>Assinantes Ativos</h3>
+                        <p class="valor" id="totalAtivos">0</p>
+                        <small>Total de usuários</small>
+                    </div>
+                </div>
+
+                <div class="card card-laranja">
+                    <div class="card-icon">⚠️</div>
+                    <div class="card-content">
+                        <h3>A Vencer</h3>
+                        <p class="valor" id="totalAVencer">0</p>
+                        <small>Próximos 5 dias</small>
+                    </div>
+                </div>
+
+                <div class="card card-preto">
+                    <div class="card-icon">❌</div>
+                    <div class="card-content">
+                        <h3>Vencidos</h3>
+                        <p class="valor" id="totalVencidos">0</p>
+                        <small>Atrasados</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Distribuição por Forma de Pagamento</h3>
+                    <canvas id="chartPagamento"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Status das Assinaturas</h3>
+                    <canvas id="chartStatus"></canvas>
+                </div>
+                <div class="chart-container full-width">
+                    <h3>Receita Mensal</h3>
+                    <canvas id="chartReceita"></canvas>
+                </div>
+            </div>
+
+            <div class="alerts-section">
+                <h3>🔔 Alertas e Notificações</h3>
+                <div id="listaAlertas" class="alerts-list"></div>
+            </div>
+        </section>
+
+        <!-- ASSINANTES -->
+        <section id="secao-assinantes" class="secao">
+            <h1 class="page-title">Gerenciar Assinantes</h1>
+
+            <div class="filtros-bar">
+                <button class="filtro-btn active" onclick="filtrarStatus('todos')">Todos</button>
+                <button class="filtro-btn" onclick="filtrarStatus('ativo')">Ativos</button>
+                <button class="filtro-btn" onclick="filtrarStatus('a-vencer')">A Vencer</button>
+                <button class="filtro-btn" onclick="filtrarStatus('vencido')">Vencidos</button>
+                <select id="filtroPagamento" onchange="filtrarPorPagamento()">
+                    <option value="">Todas as formas</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Cartão">Cartão</option>
+                    <option value="Boleto">Boleto</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table class="assinantes-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>WhatsApp</th>
+                            <th>Pagamento</th>
+                            <th>Valor</th>
+                            <th>Validade</th>
+                            <th>Dias</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaAssinantes"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- RELATÓRIOS -->
+        <section id="secao-relatorios" class="secao">
+            <h1 class="page-title">Relatórios</h1>
+            <div class="relatorios-content">
+                <button class="btn-secondary" onclick="exportarPDF()">📄 Exportar PDF</button>
+                <button class="btn-secondary" onclick="exportarExcel()">📊 Exportar Excel</button>
+            </div>
+        </section>
+
+        <!-- CONFIGURAÇÕES -->
+        <section id="secao-configuracoes" class="secao">
+            <h1 class="page-title">Configurações</h1>
+            <div class="config-content">
+                <h3>Notificações WhatsApp</h3>
+                <label>
+                    <input type="checkbox" id="notifWhatsApp" checked> Ativar notificações automáticas
+                </label>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL CADASTRO -->
+    <div id="modalCadastro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2 id="tituloModal">Novo Assinante</h2>
+            <form id="formAssinante" onsubmit="salvarAssinante(event)">
+                <input type="hidden" id="assinanteId">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome Completo *</label>
+                        <input type="text" id="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp *</label>
+                        <input type="tel" id="whatsapp" placeholder="(00) 00000-0000" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Forma de Pagamento *</label>
+                        <select id="formaPagamento" required>
+                            <option value="">Selecione</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Cartão">Cartão de Crédito</option>
+                            <option value="Boleto">Boleto</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Valor da Assinatura *</label>
+                        <input type="text" id="valor" placeholder="R$ 0,00" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Custo da Operação *</label>
+                        <input type="text" id="custo" placeholder="R$ 0,00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Data de Validade *</label>
+                        <input type="date" id="validade" required>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL PERFIL CLIENTE -->
+    <div id="modalPerfil" class="modal">
+        <div class="modal-content modal-perfil">
+            <span class="close" onclick="fecharModalPerfil()">&times;</span>
+            <div id="conteudoPerfil"></div>
+        </div>
+    </div>
+
+    <script src="assinaturas.js"></script>
+</body>
+</html>
